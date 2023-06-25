@@ -10,6 +10,10 @@ stateDiagram-v2
     YELLOWTORED --> RED
 
     GREEN --> YELLOWTORED
+    style RED fill:#ff7373,stroke:##c95757,stroke-width:4px,color:#000,stroke-dasharray: 12 5
+    style YELLOWTOGREEN fill:#f3ff70,stroke:#c9d453,stroke-width:4px,color:#000,stroke-dasharray: 12 5
+    style GREEN fill:#65fcac,stroke:#43a16f,stroke-width:4px,color:#000,stroke-dasharray: 12 5
+    style YELLOWTORED fill:#f3ff70,stroke:#c9d453,stroke-width:4px,color:#000,stroke-dasharray: 12 5
 ```
 ## *app.c*
 Файл клиентского приложения, реализующий функции для работы с пользователем. Через него можно запросить текущее состояние и изменить его, а также остановить работу daemon.
