@@ -10,11 +10,6 @@ stateDiagram-v2
     id4(Желтый горит)-->id1(Красный горит)
 
     id3(Зеленый горит)-->id4(Желтый горит)
-    
-    style id1 fill:#ff7373,stroke:##c95757,stroke-width:4px,color:#000,stroke-dasharray: 12 5
-    style id2 fill:#f3ff70,stroke:#c9d453,stroke-width:4px,color:#000,stroke-dasharray: 12 5
-    style id3 fill:#65fcac,stroke:#43a16f,stroke-width:4px,color:#000,stroke-dasharray: 12 5
-    style id4 fill:#f3ff70,stroke:#c9d453,stroke-width:4px,color:#000,stroke-dasharray: 12 5
 ```
 ## *app.c*
 Файл клиентского приложения, реализующий функции для работы с пользователем. Через него можно запросить текущее состояние и изменить его, а также остановить работу daemon.
