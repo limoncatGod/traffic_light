@@ -3,10 +3,12 @@
 int main() {
     driver_traffic_light_init();
     while (1) {
-        printf("Traffic light is on\n");
-        printf("1. Find out the current state of the traffic light\n");
-        printf("2. Set signal of the traffic light\n");
-        printf("3. Exit\n");
+        printf("Traffic light\n");
+        printf("1. Turn on traffic light\n");
+        printf("2. Find out the current state of the traffic light\n");
+        printf("3. Set signal of the traffic light\n");
+        printf("4. Turn off traffic light\n");
+        printf("5. Exit\n");
         printf("Enter your choice: ");
 
         int choice;
@@ -15,19 +17,42 @@ int main() {
         switch (choice) {
             case 1:
                 sleep(1);
-                printf("Current state is %s\n");
-                //print current state
+                printf("Turn on traffic light\n");
+                driver_traffic_light_init();
                 break;
             case 2:
+                sleep(1);
+                printf("Finding out...:");
+                FILE *data = fopen("state_light.txt", "r");
+                getSignalColor(data);
+                fclose(data);
+                break;
+            case 3:
                 sleep(1);
                 printf("Choose signal RED YELLOW GREEN:");
                 char signal[LIGHTCONST];
                 scanf("%s", signal);
-                //set signal color
+                SignalColor LightColor = 3;
+                if(strcmp(signal, "RED") == 0){
+                    LightColor = RED;
+                } else if(strcmp(signal, "YELLOW") == 0){
+                    LightColor = YELLOW;
+                } else if(strcmp(signal, "GREEN") == 0){
+                    LightColor = GREEN;
+                }
+                FILE *data2 = fopen("state_light.txt", "w");
+                setSignalColor(LightColor, data2);
+                fclose(data2);
+                FILE *file = fopen("time.txt", "w");
+                fprintf(file, "%lld\n", time(NULL));
+                fclose(file);
                 break;
-            case 3:
+            case 4:
+                printf("Stopping traffic light...\n");
+                system("killall -9 file1");//???
+                break;
+            case 5:
                 printf("exiting...\n");
-                system("killall -9 file1");
                 return 0;
             default:
                 printf("invalid choice\n");

@@ -3,7 +3,6 @@
 
 // Включение светофора
 int driver_traffic_light_init() {
-    printf("Turn on traffic light...\n");
     sleep(1);
     return 0;
 }
@@ -11,7 +10,7 @@ int driver_traffic_light_init() {
 
 // Функция для определения текущего цвета сигнала светофора
 void getSignalColor(FILE *data) {
-    char color[10];
+    char color[LIGHTCONST];
     fscanf(data, "%s\n", color);
     SignalColor LightColor = 3;
 
@@ -24,20 +23,20 @@ void getSignalColor(FILE *data) {
     }
     switch (LightColor) {
         case RED:
-            printf("Установлен красный сигнал светофора.\n");
-            sleep(100);
+            printf("Now the traffic light is red.\n");
+            sleep(1);
             break;
         case YELLOW:
-            printf("Установлен желтый сигнал светофора.\n");
-            sleep(100);
+            printf("Now the traffic light is red.\n");
+            sleep(1);
             break;
         case GREEN:
-            printf("Установлен зеленый сигнал светофора.\n");
-            sleep(100);
+            printf("Now the traffic light is red.\n");
+            sleep(1);
             break;
         default:
-            printf("Недопустимый цвет сигнала светофора.\n");
-            sleep(100);
+            printf("Тow the traffic light is invalid.\n");
+            sleep(1);
             break;
     }
 }
@@ -47,23 +46,23 @@ void setSignalColor(SignalColor color, FILE *data) {
 
     switch (color) {
         case RED:
-            printf("Установлен красный сигнал светофора.\n");
+            printf("Red traffic light set.\n");
             fprintf(data, "RED\n");
-            sleep(1000);
+            sleep(1);
             break;
         case YELLOW:
-            printf("Установлен желтый сигнал светофора.\n");
+            printf("Yellow traffic light set.\n");
             fprintf(data, "YELLOW\n");
-            sleep(1000);
+            sleep(1);
             break;
         case GREEN:
-            printf("Установлен зеленый сигнал светофора.\n");
+            printf("Green traffic light set.\n");
             fprintf(data, "GREEN\n");
-            sleep(1000);
+            sleep(1);
             break;
         default:
-            printf("Недопустимый цвет сигнала светофора.\n");
-            sleep(1000);
+            printf("Invalid traffic light color.\n");
+            sleep(1);
             break;
     }
 }
