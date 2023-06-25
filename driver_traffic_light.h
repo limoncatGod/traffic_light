@@ -16,8 +16,9 @@
 
 typedef enum {
     RED,
-    YELLOW,
-    GREEN
+    YELLOWTOGREEN,
+    GREEN,
+    YELLOWTORED
 } SignalColor;
 
 

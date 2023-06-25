@@ -33,9 +33,9 @@ int main() {
                 fprintf(file, "%lld\n", time(NULL));
                 fclose(file);
                 data = fopen("state_light.txt", "w");
-                setSignalColor(YELLOW,data);
+                setSignalColor(YELLOWTOGREEN,data);
             }
-        } else if(strcmp(light_state, "YELLOW") == 0){
+        } else if(strcmp(light_state, "YELLOWTOGREEN") == 0){
             if((time(NULL)-time_prev) >= YELLOWTIME){
                 file = fopen("time.txt", "w");
                 fprintf(file, "%lld\n", time(NULL));
@@ -44,6 +44,14 @@ int main() {
                 setSignalColor(GREEN,data);
             }
         } else if(strcmp(light_state, "GREEN") == 0){
+            if((time(NULL)-time_prev) >= GREENTIME){
+                file = fopen("time.txt", "w");
+                fprintf(file, "%lld\n", time(NULL));
+                fclose(file);
+                data = fopen("state_light.txt", "w");
+                setSignalColor(YELLOWTORED,data);
+            }
+        } else if(strcmp(light_state, "YELLOWTORED") == 0){
             if((time(NULL)-time_prev) >= GREENTIME){
                 file = fopen("time.txt", "w");
                 fprintf(file, "%lld\n", time(NULL));

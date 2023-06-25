@@ -29,16 +29,18 @@ int main() {
                 break;
             case 3:
                 sleep(1);
-                printf("Choose signal RED YELLOW GREEN:");
+                printf("Choose signal RED YELLOWTOGREEN GREEN YELLOWTORED:");
                 char signal[LIGHTCONST];
                 scanf("%s", signal);
                 SignalColor LightColor = 3;
                 if(strcmp(signal, "RED") == 0){
                     LightColor = RED;
-                } else if(strcmp(signal, "YELLOW") == 0){
-                    LightColor = YELLOW;
+                } else if(strcmp(signal, "YELLOWTOGREEN") == 0){
+                    LightColor = YELLOWTOGREEN;
                 } else if(strcmp(signal, "GREEN") == 0){
                     LightColor = GREEN;
+                } else if(strcmp(signal, "YELLOWTORED") == 0){
+                    LightColor = YELLOWTORED;
                 }
                 FILE *data2 = fopen("state_light.txt", "w");
                 setSignalColor(LightColor, data2);
