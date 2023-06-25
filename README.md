@@ -3,7 +3,6 @@
 ## Диаграмма состояний
 ```mermaid
 flowchart LR
-    [*] --> RED
 
     RED --> YELLOWTOGREEN
     YELLOWTOGREEN --> GREEN
