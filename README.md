@@ -38,7 +38,8 @@ Response from daemon:
 ## Диаграмма состояний
 ```mermaid
 flowchart LR
-
+    ON --> OFF
+    OFF --> ON
     RED --> YELLOWTOGREEN
     YELLOWTOGREEN --> GREEN
     GREEN --> YELLOWTORED
