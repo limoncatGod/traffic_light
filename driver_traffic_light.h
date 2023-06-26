@@ -22,8 +22,9 @@ typedef enum {
 } SignalColor;
 
 
-int driver_traffic_light_init();
-void getSignalColor(FILE *data);
+int driver_traffic_light_power();
+int traffic_light_is_powered();
+SignalColor getSignalColor(FILE *data);
 void setSignalColor(SignalColor color, FILE *data);
 
 #endif
