@@ -1,6 +1,6 @@
 # Traffic light
 ## Запуск
-Необходимо запустить ./build.sh
+Необходимо запустить ./building.sh
 ```
 ./build.sh
 ```
