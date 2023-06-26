@@ -13,7 +13,7 @@
 
 int main()
 {
-    // создание сокета
+    
     int sockfd = socket(AF_INET, SOCK_STREAM, 0);
     int opt = 1;
     if (sockfd < 0)
@@ -29,7 +29,7 @@ int main()
         exit(EXIT_FAILURE);
     }
 
-    // бинд сокета на порт
+    
     struct sockaddr_in address;
     address.sin_family = AF_INET;
     address.sin_addr.s_addr = INADDR_ANY;
@@ -70,12 +70,11 @@ int main()
         int symb_c; // а сюда писать сколько символов прочитали
         
 
-        // -------------------- ОСНОВНАЯ ЛОГИКА ДЕМОНА --------------------
+        
         while (1)
         {
             memset(buf, 0, BUF_MAX);
-            // прога на read() будет висеть до тех пор, пока не прочитает хоть че то из сокета
-            symb_c = read(client_sockfd, &buf, BUF_MAX); // читаем из сокета
+            symb_c = read(client_sockfd, &buf, BUF_MAX);
             
             if (symb_c < 0)
             {
@@ -215,7 +214,6 @@ int main()
                 strcpy(buf, "invalid request");
             }
 
-            // Пишем ответ
             symb_c = write(client_sockfd, buf, strlen(buf));
             if (symb_c < 0)
             {
@@ -225,7 +223,6 @@ int main()
                 exit(EXIT_FAILURE);
             }
         }
-        // ----------------------------------------------------------------
     }
     
     shutdown(sockfd, SHUT_RDWR);
